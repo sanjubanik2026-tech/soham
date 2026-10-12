@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+<title>Soham Banik</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700;900&display=swap');
+html {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 1000;
+  background-color: black;
+  user-select: none;
+}
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 55px;
+  padding-top: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+h1::after {
+  content: '.';
+  color: red;
+}
+
+.site-header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background-color: #000000;
+}
+
+.brand {
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+}
+
+.brand-name-stack {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.brand-divider {
+  color: #666666;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px; 
+  font-weight: 300;
+  line-height: 1;
+  align-self: center;
+}
+
+.brand-subtitle-stack {
+  display: flex;
+  flex-direction: column;
+  color: grey;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+}
+
+.main-navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 20px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.main-navigation a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transform: translateX(-50%);
+  transition: width 0.3s ease; 
+}
+
+.main-navigation a:hover::after {
+  width: 100%;
+}
+
+.main-navigation .home-link {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 8px; 
+}
+
+.main-navigation .home-link svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.main-navigation .home-link:hover svg {
+  transform: translateY(-2px);
+}
+
+.main-navigation .home-link::after {
+  display: none !important;
+}
+
+span {
+  color: grey;
+  text-align: left;
+}
+
+.intro {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+
+@keyframes borderGlowMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.ai-glow-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  background: linear-gradient(black, black) padding-box,
+              linear-gradient(135deg, #4285f4, #ea4335, #fbbc05, #34a853, #4285f4) border-box;
+  background-size: 300% 300%;
+  animation: borderGlowMove 4s ease infinite;
+  padding: 10px 26px;
+  box-shadow: 0 0 12px rgba(66, 133, 244, 0.4), 0 0 20px rgba(234, 67, 53, 0.3);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+}
+
+.ai-glow-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(66, 133, 244, 0.6), 0 0 30px rgba(234, 67, 53, 0.5), 0 0 45px rgba(155, 81, 224, 0.3);
+}
+
+.ai-glow-btn:active {
+  transform: scale(0.98);
+}
+
+.projects-section {
+  background-color: #000000;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  padding: 80px 24px;
+  font-family: 'Inter', sans-serif;
+  margin-top: 60px;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 32px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 16px;
+  padding: 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-info {
+  margin-top: 20px;
+}
+
+.project-num-title {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0 0 6px 0;
+}
+
+.project-tagline {
+  color: #888888;
+  font-size: 13px;
+  margin: 0;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: #444444;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.project-card:hover .card-image-wrapper img {
+  transform: scale(1.04);
+}
+
+.site-footer {
+  background-color: #000000;
+  padding: 40px 24px;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid #111111;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-socials a {
+  color: #666666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-socials svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-socials a:hover {
+  color: #ffffff;
+}
+
+.footer-copyright {
+  color: #666666;
+  font-size: 13px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header-nav">
+  <div class="brand">
+    <div class="brand-name-stack">
+      <span>Soham</span>
+      <span>Banik</span>
+    </div>
+    <span class="brand-divider">|</span>
+    <div class="brand-subtitle-stack">
+      <span>creative</span>
+      <span>tech &</span>
+      <span>coder</span>
+    </div>
+  </div>
+  
+  <nav class="main-navigation">
+    <a href="index.html" class="home-link" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    <a href="about.html">About</a>
+    <a href="Projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<h1>Soham Banik</h1>
+<p class="intro">
+I am <strong>Soham Banik</strong>, a website developer and creative coder<br> dedicated to transforming complex concepts into<br> fluid, high-performance digital experiences.</p>
+
+<div style="text-align: center; padding-top: 30px;">
+  <a href="about.html" class="ai-glow-btn">
+    Read more
+  </a>
+</div>
+
+<section class="projects-section">
+  <div class="section-container">
+    <h2 class="section-title">FEATURED PROJECTS</h2>
+    
+    <div class="projects-grid">
+      <a href="https://hpass.edgeone.app" target="_blank" class="project-card">
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600" alt="Flux Archive">
+        </div>
+        <div class="card-info">
+          <h3 class="project-num-title">01. HYPER PASSWORDS™</h3>
+          <p class="project-tagline">Can be used in any apps that require passswords</p>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=600" alt="Calculator">
+        </div>
+        <div class="card-info">
+          <h3 class="project-num-title">02. Calculator</h3>
+          <p class="project-tagline">Calculates upto the end of the universe</p>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" alt="Data Pulse">
+        </div>
+        <div class="card-info">
+          <h3 class="project-num-title">03. DATA PULSE</h3>
+          <p class="project-tagline">Real-time metrics (N.B.: UPCOMING)</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-socials">
+      <a href="https://instagram.com/htstech139/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+    </div>
+    <p class="footer-copyright">&copy; 2026 Soham Banik</p>
+  </div>
+</footer>
+
+</body>
+</html>
